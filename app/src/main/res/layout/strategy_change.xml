@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    tools:context=".StrategyChange">
+
+
+    <RadioGroup
+        android:id="@+id/radioGroup"
+        android:layout_width="match_parent"
+        android:checked="false"
+        android:layout_height="477dp">
+
+        <RadioButton
+            android:id="@+id/life_priority"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#000000"
+            android:text="命優先"
+            android:checked="false"
+            android:textSize="50sp" />
+
+        <RadioButton
+            android:id="@+id/magic_priority"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#000000"
+            android:text="魔法優先"
+            android:checked="false"
+            android:textSize="50sp" />
+
+        <RadioButton
+            android:id="@+id/magic_saving"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#000000"
+            android:text="魔法節約"
+            android:checked="false"
+            android:textSize="50sp" />
+
+        <RadioButton
+            android:id="@+id/balance"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#000000"
+            android:text="バランスよく"
+            android:checked="false"
+            android:textSize="50sp" />
+
+        <RadioButton
+            android:id="@+id/random"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#000000"
+            android:text="ランダム"
+            android:textSize="50sp" />
+    </RadioGroup>
+
+</LinearLayout>

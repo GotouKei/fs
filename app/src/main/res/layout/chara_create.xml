@@ -1,0 +1,121 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    tools:context=".CharaCreate">
+
+    <EditText
+        android:id="@+id/editText1Name"
+        android:layout_width="match_parent"
+        android:layout_height="57dp"
+        android:layout_alignBottom="@+id/radioGroup1"
+        android:layout_marginTop="22dp"
+        android:layout_marginBottom="265dp"
+        android:inputType="text"
+        android:autofillHints=""
+        android:textColor="#000000"
+        tools:ignore="LabelFor" />
+
+    <TextView
+        android:id="@+id/text1Kome1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/textView"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="13dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="11dp"
+        android:layout_marginBottom="131dp"
+        android:text="※"
+        android:textColor="#FF0000"
+        android:textSize="14sp" />
+
+    <Button
+        android:id="@+id/button1Regist"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="536dp"
+        android:background="@drawable/shape_rounded_corners"
+        android:text="キャラ作成"
+        android:textColor="#000000"
+        android:textSize="16sp" />
+
+    <RadioGroup
+        android:id="@+id/radioGroup1"
+        android:layout_width="405dp"
+        android:layout_height="207dp"
+        android:layout_above="@+id/button1Regist"
+        android:layout_below="@+id/button1Regist"
+        android:layout_alignBottom="@+id/button1Regist"
+        android:layout_alignParentStart="false"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="-313dp"
+        android:layout_marginBottom="106dp"
+        android:textColor="#000000">
+
+        <RadioButton
+            android:id="@+id/radioButton4_senshi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="false"
+            android:text="戦士"
+            android:textColor="#000000"
+            android:textSize="16sp" />
+
+        <RadioButton
+            android:id="@+id/radioButton4_mahotsukai"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:checked="false"
+            android:text="魔法使い"
+            android:textColor="#000000"
+            android:textSize="16sp" />
+
+        <RadioButton
+            android:id="@+id/radioButton4_soryo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:checked="false"
+            android:text="僧侶"
+            android:textColor="#000000"
+            android:textSize="16sp" />
+
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="41dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="84dp"
+        android:layout_marginEnd="9dp"
+        android:layout_marginBottom="146dp"
+        android:gravity="center_horizontal"
+        android:text="名前を入力してください"
+        android:textSize="25sp"
+        android:textColor="#000000"/>
+
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="wrap_content"
+        android:layout_height="41dp"
+        android:layout_alignBottom="@+id/radioGroup1"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="17dp"
+        android:layout_marginEnd="23dp"
+        android:layout_marginBottom="215dp"
+        android:gravity="center_horizontal"
+        android:textSize="25sp" />
+
+
+</RelativeLayout>

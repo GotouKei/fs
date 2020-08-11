@@ -1,0 +1,564 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:background="#FFFFFF"
+    android:layout_height="match_parent">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="136dp"
+            android:layout_height="80dp"
+            android:background="@drawable/list_line"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/chara1name"
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:textColor="#000000"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/textView12"
+                    android:layout_width="wrap_content"
+                    android:layout_height="20dp"
+                    android:text="HP"
+                    android:textColor="#000000"/>
+
+                <TextView
+                    android:id="@+id/chara1hp"
+                    android:layout_width="58dp"
+                    android:layout_height="20dp"
+                    android:textColor="#000000"/>
+
+                <TextView
+                    android:id="@+id/chara1mhp"
+                    android:layout_width="58dp"
+                    android:layout_height="20dp"
+                    android:textColor="#000000"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/textView16"
+                    android:layout_width="wrap_content"
+                    android:layout_height="20dp"
+                    android:text="MP"
+                    android:textColor="#000000"/>
+
+                <TextView
+                    android:id="@+id/chara1mp"
+                    android:layout_width="58dp"
+                    android:layout_height="20dp"
+                    android:textColor="#000000"/>
+
+                <TextView
+                    android:id="@+id/chara1mmp"
+                    android:layout_width="58dp"
+                    android:layout_height="20dp"
+                    android:textColor="#000000"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/chara1paralysis"
+                    android:layout_width="66dp"
+                    android:layout_height="20dp"
+                    android:textColor="#000000"/>
+
+                <TextView
+                    android:id="@+id/chara1poison"
+                    android:layout_width="66dp"
+                    android:layout_height="20dp"
+                    android:textColor="#000000"/>
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="136dp"
+            android:layout_height="match_parent"
+            android:background="@drawable/list_line"
+            android:orientation="vertical">
+
+
+            <TextView
+                android:id="@+id/chara2name"
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:textColor="#000000"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/textView23"
+                    android:layout_width="wrap_content"
+                    android:layout_height="20dp"
+                    android:text="HP"
+                    android:textColor="#000000"/>
+
+                <TextView
+                    android:id="@+id/chara2hp"
+                    android:layout_width="58dp"
+                    android:layout_height="20dp"
+                    android:textColor="#000000"/>
+
+                <TextView
+                    android:id="@+id/chara2mhp"
+                    android:layout_width="58dp"
+                    android:layout_height="20dp"
+                    android:textColor="#000000"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/textView32"
+                    android:layout_width="wrap_content"
+                    android:layout_height="20dp"
+                    android:text="MP"
+                    android:textColor="#000000"/>
+
+                <TextView
+                    android:id="@+id/chara2mp"
+                    android:layout_width="58dp"
+                    android:layout_height="20dp"
+                    android:textColor="#000000"/>
+
+                <TextView
+                    android:id="@+id/chara2mmp"
+                    android:layout_width="58dp"
+                    android:layout_height="20dp"
+                    android:textColor="#000000"/>
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/chara2paralysis"
+                    android:layout_width="66dp"
+                    android:layout_height="20dp"
+                    android:textColor="#000000"/>
+
+                <TextView
+                    android:id="@+id/chara2poison"
+                    android:layout_width="66dp"
+                    android:layout_height="20dp"
+                    android:textColor="#000000"/>
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="136dp"
+            android:layout_height="match_parent"
+            android:background="@drawable/list_line"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/chara3name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#000000"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/textView38"
+                    android:layout_width="wrap_content"
+                    android:layout_height="20dp"
+                    android:text="HP"
+                    android:textColor="#000000"/>
+
+                <TextView
+                    android:id="@+id/chara3hp"
+                    android:layout_width="58dp"
+                    android:layout_height="20dp"
+                    android:textColor="#000000"/>
+
+                <TextView
+                    android:id="@+id/chara3mhp"
+                    android:layout_width="58dp"
+                    android:layout_height="match_parent"
+                    android:textColor="#000000"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/textView44"
+                    android:layout_width="wrap_content"
+                    android:layout_height="20dp"
+                    android:text="MP"
+                    android:textColor="#000000"/>
+
+                <TextView
+                    android:id="@+id/chara3mp"
+                    android:layout_width="58dp"
+                    android:layout_height="20dp"
+                    android:textColor="#000000"/>
+
+                <TextView
+                    android:id="@+id/chara3mmp"
+                    android:layout_width="58dp"
+                    android:layout_height="20dp"
+                    android:textColor="#000000"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/chara3paralysis"
+                    android:layout_width="66dp"
+                    android:layout_height="20dp"
+                    android:textColor="#000000"/>
+
+                <TextView
+                    android:id="@+id/chara3poison"
+                    android:layout_width="66dp"
+                    android:layout_height="20dp"
+                    android:textColor="#000000"/>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="136dp"
+            android:layout_height="match_parent"
+            android:background="@drawable/list_line"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/chara4name"
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:textColor="#000000"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/textView52"
+                    android:layout_width="wrap_content"
+                    android:layout_height="20dp"
+                    android:text="HP"
+                    android:textColor="#000000"/>
+
+                <TextView
+                    android:id="@+id/chara4hp"
+                    android:layout_width="58dp"
+                    android:layout_height="20dp"
+                    android:textColor="#000000"/>
+
+                <TextView
+                    android:id="@+id/chara4mhp"
+                    android:layout_width="58dp"
+                    android:layout_height="20dp"
+                    android:textColor="#000000"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/textView55"
+                    android:layout_width="wrap_content"
+                    android:layout_height="20dp"
+                    android:text="MP"
+                    android:textColor="#000000"/>
+
+                <TextView
+                    android:id="@+id/chara4mp"
+                    android:layout_width="58dp"
+                    android:layout_height="20dp"
+                    android:textColor="#000000"/>
+
+                <TextView
+                    android:id="@+id/chara4mmp"
+                    android:layout_width="58dp"
+                    android:layout_height="20dp"
+                    android:textColor="#000000"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/chara4paralysis"
+                    android:layout_width="66dp"
+                    android:layout_height="20dp"
+                    android:textColor="#000000"/>
+
+                <TextView
+                    android:id="@+id/chara4poison"
+                    android:layout_width="66dp"
+                    android:layout_height="20dp"
+                    android:textColor="#000000"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="136dp"
+            android:layout_height="match_parent"
+            android:background="@drawable/list_line"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/chara5name"
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:textColor="#000000"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/textView62"
+                    android:layout_width="wrap_content"
+                    android:layout_height="20dp"
+                    android:text="HP"
+                    android:textColor="#000000"/>
+
+                <TextView
+                    android:id="@+id/chara5hp"
+                    android:layout_width="58dp"
+                    android:layout_height="20dp"
+                    android:textColor="#000000"/>
+
+                <TextView
+                    android:id="@+id/chara5mhp"
+                    android:layout_width="58dp"
+                    android:layout_height="20dp"
+                    android:textColor="#000000"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/textView66"
+                    android:layout_width="wrap_content"
+                    android:layout_height="20dp"
+                    android:text="MP"
+                    android:textColor="#000000"/>
+
+                <TextView
+                    android:id="@+id/chara5mp"
+                    android:layout_width="58dp"
+                    android:layout_height="match_parent"
+                    android:textColor="#000000"/>
+
+                <TextView
+                    android:id="@+id/chara5mmp"
+                    android:layout_width="58dp"
+                    android:layout_height="20dp"
+                    android:textColor="#000000"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/chara5paralysis"
+                    android:layout_width="66dp"
+                    android:layout_height="20dp"
+                    android:textColor="#000000"/>
+
+                <TextView
+                    android:id="@+id/chara5poison"
+                    android:layout_width="66dp"
+                    android:layout_height="20dp"
+                    android:textColor="#000000"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="136dp"
+            android:layout_height="match_parent"
+            android:background="@drawable/list_line"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/chara6name"
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:textColor="#000000"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/textView72"
+                    android:layout_width="wrap_content"
+                    android:layout_height="20dp"
+                    android:text="HP"
+                    android:textColor="#000000"/>
+
+                <TextView
+                    android:id="@+id/chara6hp"
+                    android:layout_width="58dp"
+                    android:layout_height="20dp"
+                    android:textColor="#000000"/>
+
+                <TextView
+                    android:id="@+id/chara6mhp"
+                    android:layout_width="58dp"
+                    android:layout_height="20dp"
+                    android:textColor="#000000"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/textView78"
+                    android:layout_width="wrap_content"
+                    android:layout_height="20dp"
+                    android:text="MP"
+                    android:textColor="#000000"/>
+
+                <TextView
+                    android:id="@+id/chara6mp"
+                    android:layout_width="58dp"
+                    android:layout_height="20dp"
+                    android:textColor="#000000"/>
+
+                <TextView
+                    android:id="@+id/chara6mmp"
+                    android:layout_width="58dp"
+                    android:layout_height="20dp"
+                    android:textColor="#000000"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/chara6paralysis"
+                    android:layout_width="66dp"
+                    android:layout_height="20dp"
+                    android:textColor="#000000"/>
+
+                <TextView
+                    android:id="@+id/chara6poison"
+                    android:layout_width="66dp"
+                    android:layout_height="20dp"
+                    android:textColor="#000000"/>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="66dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/strategy"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:orientation="vertical"
+            android:text="作戦"
+            android:textSize="30sp"
+            android:textColor="#000000"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/strategy_main"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:textSize="45sp"
+            android:textColor="#000000"/>
+
+        <Button
+            android:id="@+id/strategy_change"
+            android:layout_width="60dp"
+            android:layout_height="match_parent"
+            android:onClick="strategy_change"
+            android:textColor="#FFFFFF"
+            android:background="@drawable/shape_rounded_corners"
+            android:text="決定" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/battale_log"
+        android:layout_width="match_parent"
+        android:layout_height="290dp"
+        android:background="@drawable/list_line"
+        android:textColor="#000000"/>
+
+    <Button
+        android:id="@+id/battaleTurn"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@drawable/shape_rounded_corners"
+        android:onClick="battaleTurn"
+        android:text="次のターン"
+        android:textColor="#FFFFFF" />
+</LinearLayout>

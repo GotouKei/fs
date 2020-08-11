@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="text01Kome02" type="id" />
+    <item name="text01Kome01" type="id" />
+    <item name="editText01Price" type="id" />
+    <item name="editText01Number" type="id" />
+    <item name="editText01MadeIn" type="id" />
+    <item name="editText01Product" type="id" />
+    <item name="text01Kome03" type="id" />
+    <item name="text01Kome04" type="id" />
+    <item name="button01Regist" type="id" />
+    <item name="button01Show" type="id" />
+    <item name="radioGroup01" type="id" />
+    <item name="radioButton01Product" type="id" />
+    <item name="radioButton01ListView" type="id" />
+    <item name="radioButton01TableLayout" type="id" />
+    <item name="action_settings" type="id" />
+</resources>
