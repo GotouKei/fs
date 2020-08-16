@@ -1,6 +1,6 @@
 package com.example.myapplication1;
 
-abstract class Strategy {
+public interface Strategy {
 
-    abstract void strategy();
+    void strategy();
 }

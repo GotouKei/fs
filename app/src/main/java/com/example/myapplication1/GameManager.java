@@ -5,6 +5,7 @@ import android.content.Intent;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -263,5 +264,19 @@ public class GameManager extends Activity {
                     break;
             }
         }
+    }
+    public class Turn implements Comparator<Player> {
+        public int compare(Player c1, Player c2) {
+            if(c1.getAgi() < c2.getAgi()) {
+                return 1;
+            }
+            else if(c1.getAgi() > c2.getAgi()) {
+                return -1;
+            }
+            else {
+                return c1.getName().compareTo(c2.getName());
+            }
+        }
+
     }
 }

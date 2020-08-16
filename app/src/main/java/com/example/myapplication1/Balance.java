@@ -1,6 +1,6 @@
 package com.example.myapplication1;
 
-public class Balance extends Strategy{
+public class Balance implements Strategy{
 
     @Override
     public void strategy() {

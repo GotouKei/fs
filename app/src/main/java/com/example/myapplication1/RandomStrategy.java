@@ -1,6 +1,6 @@
 package com.example.myapplication1;
 
-public class RandomStrategy extends Strategy{
+public class RandomStrategy implements Strategy{
 
     @Override
     public void strategy() {
