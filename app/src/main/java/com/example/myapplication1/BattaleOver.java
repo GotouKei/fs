@@ -8,7 +8,7 @@ import android.view.Window;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-public class BattaleEnd extends Activity {
+public class BattaleOver extends Activity {
 
     TextView chara1Name;    //キャラの名前１
     TextView chara1Hp;  //キャラのHP
@@ -178,7 +178,7 @@ public class BattaleEnd extends Activity {
     }
 
     public void nextBattale(View v){    //次のバトル
-        Intent intent = new Intent(this, BattaleStart.class);
+        Intent intent = new Intent(this, BattaleBegins.class);
         startActivity(intent);
     }
 

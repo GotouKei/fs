@@ -1,7 +1,9 @@
 package com.example.myapplication1;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 
+//TODO 色がおかしいところを色の意味を調べて直す
 public class Party {
     private ArrayList<Player> members;
     private int partyNumber;
@@ -15,26 +17,14 @@ public class Party {
         members.add(player);
     }
 
-    public int getPartyNumber() {
-        return partyNumber;
-    }
-
-    public Player getMember(int ran) {
-        player = members.get(ran);
+    public Player getMember(int number) {
+        player = members.get(number);
         return player;
     }
 
-    public String toString() {
-        StringBuffer string = new StringBuffer();
-        for(int i = 0; i < members.size(); i++) {
-            string.append(members.get(i));
-            string.append("");
-        }
-        return string.toString();
-    }
-
+    //TODO
     public int getSize() {
-        int i  = members.size();
-        return i;
+        int count  = members.size();
+        return count;
     }
 }

@@ -12,13 +12,15 @@ import android.widget.ListView;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CharaAll extends Activity {
+public class CharaList extends Activity {
 
     private DBAdapter dbAdapter;    //データベースを操作するインスタンス
     private MyBaseAdapter myBaseAdapter;    //自身が持っているリストを変換
-    private List<MyListItem> items;     //登録されたデータ
+
+    //TODO
+    private List<CharaStatus> items;     //登録されたデータ
     private ListView onlyListView;   //一覧画面の登録されたデータ
-    private MyListItem myListItem;  //登録されたデータの箱の箱
+    private CharaStatus myListItem;  //登録されたデータの箱の箱
 
     private String[] columns = null;    //DBカラム
 
@@ -44,7 +46,7 @@ public class CharaAll extends Activity {
 
                 loadMyList();
 
-                MyListItem selectedText = items.get(position);
+                CharaStatus selectedText = items.get(position);
                 String strName = selectedText.getName();
                 String strJob = Integer.toString(selectedText.getJob());
                 String strHp = Integer.toString(selectedText.getHp());
@@ -77,6 +79,7 @@ public class CharaAll extends Activity {
         startActivity(intent);
     }
 
+    //TODO back先
     public void back(View view){    //戻るボタン
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
@@ -89,7 +92,7 @@ public class CharaAll extends Activity {
 
         if(c.moveToFirst()){
             do{
-                myListItem = new MyListItem(
+                myListItem = new CharaStatus(
                         c.getString(0),
                         c.getInt(1),
                         c.getInt(2),

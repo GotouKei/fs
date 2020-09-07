@@ -2,7 +2,7 @@ package com.example.myapplication1;
 
 public class Fighter extends Player {
 
-    public Fighter(MyListItem item) {
+    public Fighter(CharaStatus item) {
         super(item);
     }
 

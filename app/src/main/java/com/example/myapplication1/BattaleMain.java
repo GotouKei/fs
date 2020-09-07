@@ -16,13 +16,14 @@ import static android.graphics.Color.RED;
 
 public class BattaleMain extends Activity { //バトルメイン、ゲームマネージャー、バトルエンドの受渡し改善
 
-    TextView strategy;  //作戦
+    TextView strategy;
 
     static StringBuilder stringBuilder = new StringBuilder();   //ログに写す文字列
 
     static boolean isTurn = false;
     static boolean isEnter = false;
 
+    //TODO
     int count = 0;
 
     GameManager gameManager;
@@ -69,15 +70,17 @@ public class BattaleMain extends Activity { //バトルメイン、ゲームマ�
     TextView chara6paralysis;
     TextView chara6poison;
 
+    //TODO
     static String strategy1;
     TextView tlog;  //ログ表示テキスト
 
     boolean isNextTurn = true;
 
+    //TODO
     Intent intent;
 
-    ArrayList<MyListItem> items1;   //相手のキャラの属性
-    ArrayList<MyListItem> items2;   //見方のキャラの属性
+    ArrayList<CharaStatus> items1;   //相手のキャラの属性
+    ArrayList<CharaStatus> items2;   //見方のキャラの属性
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
@@ -97,14 +100,19 @@ public class BattaleMain extends Activity { //バトルメイン、ゲームマ�
 
         strategy.setText(intent.getStringExtra("KEY_STRATEGY"));
 
-        items1 = (ArrayList<MyListItem>) intent.getSerializableExtra("KEY_ENEMY");
-        items2 = (ArrayList<MyListItem>) intent.getSerializableExtra("KEY_MEMBERS");
+        items1 = (ArrayList<CharaStatus>) intent.getSerializableExtra("KEY_ENEMY");
+        items2 = (ArrayList<CharaStatus>) intent.getSerializableExtra("KEY_MEMBERS");
 
-        gameManager = new GameManager(items1, items2);
+        //TODO パーティーナンバーだとわかりづらい
+        gameManager = new GameManager();
+        gameManager.prepareGame(items1, 1);
+        gameManager.prepareGame(items2, 2);
 
+        //TODO
         Intent inten = gameManager.prepareGame();
         prepareView(inten);
 
+        //TODO 数字が謎
         gameManager.End = 4;
     }
 
@@ -130,23 +138,24 @@ public class BattaleMain extends Activity { //バトルメイン、ゲームマ�
             Intent inten = gameManager.prepareGame();
             prepareView(inten);
 
+            //TODO textLogの方がいいかも
             tlog = findViewById(R.id.battale_log);
             tlog.setText(stringBuilder.toString());
 
             if (gameManager.End == 1) {
-                Intent intent = new Intent(this, BattaleEnd.class);
+                Intent intent = new Intent(this, BattaleOver.class);
                 intent = prepareIntent(intent );
                 intent.putExtra("KEY_ENEMY", items1);
                 intent.putExtra("KEY_MEMBERS", items2);
                 startActivity(intent);
             } else if (gameManager.End == 2) {
-                Intent intent = new Intent(this, BattaleEnd.class);
+                Intent intent = new Intent(this, BattaleOver.class);
                 intent = prepareIntent(intent);
                 intent.putExtra("KEY_ENEMY", items1);
                 intent.putExtra("KEY_MEMBERS", items2);
                 startActivity(intent);
             } else if (gameManager.End == 3) {
-                Intent intent = new Intent(this, BattaleEnd.class);
+                Intent intent = new Intent(this, BattaleOver.class);
                 intent = prepareIntent(intent);
                 intent.putExtra("KEY_ENEMY", items1);
                 intent.putExtra("KEY_MEMBERS", items2);
@@ -190,6 +199,7 @@ public class BattaleMain extends Activity { //バトルメイン、ゲームマ�
         return intent;
     }
 
+    //TODO ここでセットしてる作戦
     @Override
     public void onResume() {
         super.onResume();

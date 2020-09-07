@@ -15,7 +15,7 @@ abstract class Player {
     int MaxHp;
     int MaxMp;
 
-    public Player(MyListItem item) {
+    public Player(CharaStatus item) {
 
         name = item.getName();
         job = item.getJob();

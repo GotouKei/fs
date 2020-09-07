@@ -29,6 +29,7 @@ public class CharaConplete extends Activity {
         String strAgi = intent.getStringExtra("KEY_AGI");
         String strLuck = intent.getStringExtra("KEY_LUCK");
 
+        //TODO textNameにする
         TextView tName = findViewById(R.id.mName);
         TextView tJob = findViewById(R.id.mJob);
         TextView tHp = findViewById(R.id.mHp);
@@ -48,13 +49,14 @@ public class CharaConplete extends Activity {
         tLuck.setText(strLuck);
     }
 
+    //TODO アンダーバーをメソッド名にしてよかったかな？newCharaにできるっけ?
     public void newchara_create(View v){
         Intent intent = new Intent(this,CharaCreate.class);
         startActivity(intent);
     }
 
     public void chara_all(View v){
-        Intent intent = new Intent(this,CharaAll.class);
+        Intent intent = new Intent(this, CharaList.class);
         startActivity(intent);
     }
 

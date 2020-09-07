@@ -2,9 +2,10 @@ package com.example.myapplication1;
 
 import java.util.Random;
 
+//TODO 長いしわかりづらい
 public class Priest extends Player {
 
-    public Priest(MyListItem item) {
+    public Priest(CharaStatus item) {
         super(item);
     }
 

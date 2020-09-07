@@ -26,16 +26,19 @@ public class StrategyChange extends Activity implements RadioGroup.OnCheckedChan
         radioGroup.setOnCheckedChangeListener(this);
     }
 
+    //TODO 何がエンターなのか, キャラ選びとか
     public void enter(View v){
         BattaleMain.strategy1 = strategy;
         finish();
     }
 
+    //TODO どこにいくのか
     public void back(View v){
         Intent intent = new Intent(this, BattaleMain.class);
         startActivity(intent);
     }
 
+    //TODO なくせないか
     @Override
     public void onCheckedChanged(RadioGroup group, int checkedId){
         switch(checkedId){

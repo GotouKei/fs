@@ -5,7 +5,6 @@ import android.content.Intent;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Comparator;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -13,19 +12,6 @@ public class GameManager extends Activity {
 
     String strategy;
     static int End;
-
-    private Player p1;
-    private Player p2;
-    private Player p3;
-    private Player p4;
-    private Player p5;
-    private Player p6;
-
-    private Strategy magicPriority = new MagicPriority();  //魔法優先の作戦インスタンス
-    private Strategy magicSaving = new MagicSaving();  //マジック優先の作戦インスタンス
-    private Strategy lifePriority = new LifePriority();   //命優先の作戦インスタンス
-    private Strategy balance = new Balance();  //バランス重視の作戦インスタンス
-    private Strategy randomStrategy = new RandomStrategy();
 
     private Random random = new Random();
 
@@ -47,6 +33,7 @@ public class GameManager extends Activity {
 
     Player enemy;	//攻撃対象
 
+    //TODO
     int count1 = 0;		//パーティー1の生き残りキャラ数をカウントする
     int count2 = 0;
 
@@ -54,29 +41,24 @@ public class GameManager extends Activity {
 
     int count;	//何番目の人が攻撃しているのかを他のクラスからわかるようにする
 
-    public GameManager(ArrayList<MyListItem> items1, ArrayList<MyListItem> items2){
-        p1 = instanceFactory(items1.get(0));
-        p1.setPartyNumber(1);
-        p2 = instanceFactory(items1.get(1));
-        p2.setPartyNumber(1);
-        p3 = instanceFactory(items1.get(2));
-        p3.setPartyNumber(1);
-        p4 = instanceFactory(items2.get(0));
-        p4.setPartyNumber(2);
-        p5 = instanceFactory(items2.get(1));
-        p5.setPartyNumber(2);
-        p6 = instanceFactory(items2.get(2));
-        p6.setPartyNumber(2);
+    //TODO iteratorパターン partyもできれば汎用性持たせたい、パーティがたくさんになっても使えるように
+    public void prepareGame(ArrayList<CharaStatus> items, int partyNumber) {
+        for (int charaNumber = 0; charaNumber < items.size(); charaNumber++) {
 
-        party1.addPlayer(p1);		//パーティーの中にキャラクターを入れていく
-        party1.addPlayer(p2);
-        party1.addPlayer(p3);
-        party2.addPlayer(p4);
-        party2.addPlayer(p5);
-        party2.addPlayer(p6);
+            Player p = instanceFactory(items.get(charaNumber));
+            p.setPartyNumber(partyNumber);
+            if(partyNumber == 1) {
+                party1.addPlayer(p);
+            }
+            else if(partyNumber == 2){
+                party2.addPlayer(p);
+            }
+        }
+
+        //TODO ここで下のprepare呼び出したい、分けるのはいいんだけど長いから改善、上の流れで値は問題ないがキーに柔軟性を持たせる
     }
 
-    private Player instanceFactory(MyListItem item){
+    private Player instanceFactory(CharaStatus item){
         Player character;
         switch(item.getJob()){
             case 0:
@@ -98,6 +80,7 @@ public class GameManager extends Activity {
 
         Intent intent = new Intent();
 
+        //FIXME
         intent.putExtra("KEY_NAME1",p1.getName());
         intent.putExtra("KEY_HP1", p1.getHp());
         intent.putExtra("KEY_MP1", p1.getMp());
@@ -138,10 +121,25 @@ public class GameManager extends Activity {
         BattaleMain.stringBuilder.append("バトルを開始します！");
         BattaleMain.stringBuilder.append("\n");
 
+        //party受け取る引数
         addMember(party1);		//攻撃する順番を決めるためのリストにパーティーメンバーを入れていく
         addMember(party2);
 
-        Collections.sort(startPlayer, new Turn());		//素早さが早い順に並び替え
+        //攻撃順決め
+        Collections.sort(startPlayer, new java.util.Comparator<Player>(){
+            @Override
+            public int compare(Player c1, Player c2) {
+                if(c1.getAgi() < c2.getAgi()) {
+                    return 1;
+                }
+                else if(c1.getAgi() > c2.getAgi()) {
+                    return -1;
+                }
+                else {
+                    return c1.getName().compareTo(c2.getName());
+                }
+            }
+        });
     }
 
     public void game() {
@@ -220,63 +218,96 @@ public class GameManager extends Activity {
             startPlayer.add(party.getMember(i)); //攻撃順番を決めるためにリストにパーティのメンバーを入れる
         }
     }
+
     public void mainStrategy() {
+
+        //TODO 別の止める方法
         Scanner scanner = new Scanner(System.in);
         strategy = BattaleMain.strategy1;
 
-        while(true){
-            if(strategy == null || BattaleMain.isEnter == false){       //どこが原因かわからない、作戦異常
+        while (true) {
+            if (strategy == null || BattaleMain.isEnter == false) {
                 strategy = scanner.nextLine();
-            }
-            else{
+            } else {
                 strategy = BattaleMain.strategy1;
                 BattaleMain.isEnter = true;
-
                 break;
             }
         }
         boolean isStrategy = true;
 
-        while(isStrategy) {
-            switch(strategy) {
+        //TODO 分岐なし　なんか判断する場所かなんかで行けそう
+        while (isStrategy) {
+            switch (strategy) {
                 case "ランダム":
                     isStrategy = false;
-                    randomStrategy.strategy();
+                    new Strategy(){
+                        @Override
+                        public void strategy(){
+                            isMagicPriority = false;
+                            isLifePriority = false;
+                            isBalance = false;
+                            isMagicSaving = false;
+                            isRandomStrategy = true;
+                        }
+                    };
                     break;
                 case "命優先":
                     isStrategy = false;
-                    lifePriority.strategy();
+                    new Strategy(){
+                        @Override
+                        public void strategy(){
+                            isLifePriority = true;
+                            isMagicPriority = false;
+                            isMagicSaving = false;
+                            isBalance = false;
+                            isRandomStrategy = false;
+                        }
+                    };
                     break;
                 case "魔法節約":
                     isStrategy = false;
-                    magicSaving.strategy();
+                    new Strategy(){
+                        @Override
+                        public void strategy(){
+                            GameManager.isMagicPriority = false;
+                            GameManager.isBalance = false;
+                            GameManager.isLifePriority = false;
+                            GameManager.isMagicSaving = true;
+                            GameManager.isRandomStrategy = false;
+                        }
+                    };
                     break;
                 case "魔法優先":
                     isStrategy = false;
-                    magicPriority.strategy();
+                    new Strategy(){
+                        @Override
+                        public void strategy(){
+                            GameManager.isMagicPriority = true;
+                            GameManager.isLifePriority = false;
+                            GameManager.isBalance = false;
+                            GameManager.isMagicSaving = false;
+                            GameManager.isRandomStrategy = false;
+                        }
+                    };
                     break;
                 case "バランスよく":
                     isStrategy = false;
-                    balance.strategy();
+                    new Strategy(){
+                        @Override
+                        public void strategy(){
+                            GameManager.isBalance = true;
+                            GameManager.isMagicPriority = false;
+                            GameManager.isMagicSaving = false;
+                            GameManager.isLifePriority = false;
+                            GameManager.isRandomStrategy = false;
+                        }
+                    };
                     break;
                 default:
                     BattaleMain.stringBuilder.append("選択肢から選んでください！");
                     break;
             }
         }
-    }
-    public class Turn implements Comparator<Player> {
-        public int compare(Player c1, Player c2) {
-            if(c1.getAgi() < c2.getAgi()) {
-                return 1;
-            }
-            else if(c1.getAgi() > c2.getAgi()) {
-                return -1;
-            }
-            else {
-                return c1.getName().compareTo(c2.getName());
-            }
-        }
-
     }
 }

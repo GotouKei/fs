@@ -12,7 +12,7 @@ import java.util.List;
 public class MyBaseAdapter extends BaseAdapter {
 
     private Context context;
-    private List<MyListItem> items;
+    private List<CharaStatus> items;
 
     private class ViewHolder{
         TextView text12Name;
@@ -24,11 +24,12 @@ public class MyBaseAdapter extends BaseAdapter {
         TextView text12Agi;
     }
 
-    MyBaseAdapter(Context context, List<MyListItem> items){
+    MyBaseAdapter(Context context, List<CharaStatus> items){
         this.context = context;
         this.items = items;
     }
 
+    //TODO この辺全般的にメソッド名がわかりづらい
     @Override
     public int getCount(){
         return items.size();
@@ -49,7 +50,7 @@ public class MyBaseAdapter extends BaseAdapter {
         View view = convertView;
         ViewHolder holder;
 
-        MyListItem myListItem = items.get(position);
+        CharaStatus myListItem = items.get(position);
 
         if(view == null){
             LayoutInflater inflater =

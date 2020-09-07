@@ -2,7 +2,7 @@ package com.example.myapplication1;
 
 import java.io.Serializable;
 
-public class MyListItem implements Serializable {
+public class CharaStatus implements Serializable {
     private String name;
     private int job;
     private int hp;
@@ -15,7 +15,7 @@ public class MyListItem implements Serializable {
     private boolean isChecked;
     private int position;
 
-    MyListItem(String name, int job, int hp, int mp, int str, int def, int agi, int luck, long create_at) {
+    CharaStatus(String name, int job, int hp, int mp, int str, int def, int agi, int luck, long create_at) {
         this.name = name;
         this.job = job;
         this.hp = hp;

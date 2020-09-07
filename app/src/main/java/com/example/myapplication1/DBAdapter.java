@@ -70,6 +70,7 @@ public class DBAdapter {
         return db.query(CHARACTERS, columns, null, null, null, null, null);
     }
 
+    //TODO 分岐の説明を書く
     public void selectDelete(String name){
         db.beginTransaction();
         try{

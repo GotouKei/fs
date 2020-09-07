@@ -2,10 +2,11 @@ package com.example.myapplication1;
 
 import java.util.Random;
 
+//TODO 長いしわかりづらい
 public class Wizard extends Player {
 
     private Random random = new Random();
-    public Wizard(MyListItem item) {	//パーティーのナンバー
+    public Wizard(CharaStatus item) {	//パーティーのナンバー
         super(item);		//mp , def , agi , パーティーナンバー
     }
 

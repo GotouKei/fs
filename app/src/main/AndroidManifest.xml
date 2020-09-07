@@ -17,7 +17,7 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".CharaAll"
+        <activity android:name=".CharaList"
                   android:label="@string/app_name"
                   android:theme="@style/MyTheme"/>
         <activity android:name=".CharaCreate"
@@ -32,7 +32,7 @@
         <activity android:name=".PartySort"
                   android:label="@string/app_name"
                   android:theme="@style/MyTheme"/>
-        <activity android:name=".BattaleStart"
+        <activity android:name=".BattaleBegins"
                   android:label="@string/app_name"
                   android:theme="@style/MyTheme"/>
         <activity android:name=".StrategyChange"
@@ -41,7 +41,7 @@
         <activity android:name=".BattaleMain"
                   android:label="@string/app_name"
                   android:theme="@style/MyTheme"/>
-        <activity android:name=".BattaleEnd"
+        <activity android:name=".BattaleOver"
                   android:label="@string/app_name"
                   android:theme="@style/MyTheme"/>
 

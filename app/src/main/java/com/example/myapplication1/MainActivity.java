@@ -13,8 +13,9 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
     }
 
+    //TODO レイアウトも名前変えてここのメソッド名も帰る
     public void chara_all(View v){
-        Intent intent = new Intent(getApplicationContext(), CharaAll.class);
+        Intent intent = new Intent(getApplicationContext(), CharaList.class);
         startActivity(intent);
     }
 

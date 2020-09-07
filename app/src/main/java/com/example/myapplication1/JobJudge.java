@@ -1,5 +1,6 @@
 package com.example.myapplication1;
 
+//TODO このクラスもいるのか
 public class JobJudge {
 
     public String judge(String job){

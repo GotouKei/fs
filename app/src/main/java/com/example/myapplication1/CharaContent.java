@@ -9,6 +9,7 @@ import android.widget.TextView;
 
 public class CharaContent extends Activity {
 
+    //TODO
     String strName;
     TextView tName;
 
@@ -59,18 +60,20 @@ public class CharaContent extends Activity {
         tCreate_At.setText(strCreate_At);
     }
 
+    //TODO backと戻り先のアクティビティ名入れるか
     public void back(View v){
-        Intent intent = new Intent(this, CharaAll.class);
+        Intent intent = new Intent(this, CharaList.class);
         startActivity(intent);
     }
 
+    //TODO 何をデリートするか,select,All火加えた方が後から付け加えた機能と差別化できる
     public void delete(View v){    //リストセレクト消去
         String listName = (String)tName.getText();
         DBAdapter dbAdapter = new DBAdapter(this);
         dbAdapter.openDB();
         dbAdapter.selectDelete(listName);
         dbAdapter.closeDB();
-        Intent intent = new Intent(this, CharaAll.class);
+        Intent intent = new Intent(this, CharaList.class);
         startActivity(intent);
     }
 }

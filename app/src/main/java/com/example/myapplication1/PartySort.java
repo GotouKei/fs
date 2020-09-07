@@ -20,13 +20,15 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.List;
 
+//TODO 肌色の部分の意味を調べて解消
+
 public class PartySort extends Activity {
 
     private DBAdapter dbAdapter;    //データベースを操作するインスタンス
     private MyBaseAdapter myBaseAdapter;    //自身が持っているリストを変換
-    private List<MyListItem> items;     //登録されたデータ
+    private List<CharaStatus> items;     //登録されたデータ
     private ListView onlyListView;   //一覧画面の登録されたデータ
-    private MyListItem myListItem;  //登録されたデータの箱の箱
+    private CharaStatus myListItem;  //登録されたデータの箱の箱
 
     private String[] columns = null;    //DBカラム
     Button battaleStart;
@@ -51,6 +53,7 @@ public class PartySort extends Activity {
         battaleStart.setText("このパーティーで開始("+myBaseAdapter.members2.size()+"/3)");
     }
 
+    //TODO backの行き先 色々小さなプロジェクトで検証する
     public void back(View view){
         Intent intent = new Intent(getApplicationContext(), MainActivity.class);
         startActivity(intent);
@@ -58,9 +61,9 @@ public class PartySort extends Activity {
 
     public void battale_start(View view){
         if(myBaseAdapter.members2.size() == 3) {
-            Intent intent = new Intent(getApplicationContext(), BattaleStart.class);
+            Intent intent = new Intent(getApplicationContext(), BattaleBegins.class);
             intent.putExtra("KEY_ENEMY", myBaseAdapter.members1);
-            BattaleStart.items2 = myBaseAdapter.members2;
+            BattaleBegins.myCharaStatus = myBaseAdapter.members2;
             startActivity(intent);
         }
         else{
@@ -75,7 +78,7 @@ public class PartySort extends Activity {
         Cursor c = dbAdapter.getDB(columns);
         if(c.moveToFirst()){
             do{
-                myListItem = new MyListItem(
+                myListItem = new CharaStatus(
                         c.getString(0),
                         c.getInt(1),
                         c.getInt(2),
@@ -96,13 +99,15 @@ public class PartySort extends Activity {
         myBaseAdapter.notifyDataSetChanged();
     }
 
+    //TODO ニコ書いてるから一個にする
+
     public class MyBaseAdapter extends BaseAdapter {
 
         private Context context;
-        private List<MyListItem> items2;
+        private List<CharaStatus> items2;
 
-        ArrayList<MyListItem> members1 = new ArrayList<>();
-        ArrayList<MyListItem> members2 = new ArrayList<>();
+        ArrayList<CharaStatus> members1 = new ArrayList<>();
+        ArrayList<CharaStatus> members2 = new ArrayList<>();
 
         private class ViewHolder{
             TextView text12Name;
@@ -115,7 +120,7 @@ public class PartySort extends Activity {
             CheckBox checkBox;
         }
 
-        MyBaseAdapter(Context context,List<MyListItem> items){
+        MyBaseAdapter(Context context,List<CharaStatus> items){
             this.context = context;
             this.items2 = items;
         }
@@ -196,7 +201,7 @@ public class PartySort extends Activity {
             holder.checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
                 @Override
                 public void onCheckedChanged(CompoundButton cb, boolean isChecked) {
-                    MyListItem listItem = (MyListItem) getItem(position);
+                    CharaStatus listItem = (CharaStatus) getItem(position);
                     listItem.setPosition(position);
                     if(members2.size() < 3 && isChecked) {
                         listItem.setChecked(isChecked);

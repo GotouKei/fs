@@ -12,13 +12,13 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Random;
 
-public class BattaleStart extends Activity {
+public class BattaleBegins extends Activity {
 
     EnemyChara enemyChara = new EnemyChara();   //相手キャラ作成
     MyBaseAdapter myBaseAdapter1;
     MyBaseAdapter myBaseAdapter2;
-    static ArrayList<MyListItem> items1;    //相手キャラ
-    static ArrayList<MyListItem> items2;    //見方キャラ
+    static ArrayList<CharaStatus> enemyCharaStatus;    //相手キャラ
+    static ArrayList<CharaStatus> myCharaStatus;    //見方キャラ
     ListView listView1;
     Intent intent = new Intent();
 
@@ -32,31 +32,33 @@ public class BattaleStart extends Activity {
         TextView title = findViewById(R.id.title);
         title.setText("バトル開始");
 
-        items1 = enemyChara.createChara();  //相手キャラ作成
+        enemyCharaStatus = enemyChara.createChara();  //相手キャラ作成
 
-        myBaseAdapter1 = new MyBaseAdapter(this, items1);   //相手キャラをむすぎつける
-        myBaseAdapter2 = new MyBaseAdapter(this, items2);   //見方キャラを結びつける
+        myBaseAdapter1 = new MyBaseAdapter(this, enemyCharaStatus);   //相手キャラをむすぎつけ
+        myBaseAdapter2 = new MyBaseAdapter(this, myCharaStatus);   //見方キャラを結びつける
 
+        //TODO 変数＋id
         listView1 = findViewById(R.id.listView1);
         listView1.setAdapter(myBaseAdapter1);
 
+        System.out.println(myCharaStatus.size());
         ListView listView2 = findViewById(R.id.listView2);
         listView2.setAdapter(myBaseAdapter2);
 
-        intent.putExtra("KEY_ENEMY", items1);
-        intent.putExtra("KEY_MEMBERS", items2);
+        intent.putExtra("KEY_ENEMY", enemyCharaStatus);
+        intent.putExtra("KEY_MEMBERS", myCharaStatus);
     }
 
-    public void enemyChoice(View v){    //相手キャラ作成メソッド
-        items1.clear(); //相手キャラをクリア
+    public void enemyChange(View v){    //相手キャラ作成メソッド
+        enemyCharaStatus.clear(); //相手キャラをクリア
         myBaseAdapter1 = (MyBaseAdapter)listView1.getAdapter();
-        items1 = enemyChara.createChara();  //相手キャラ作成
-        myBaseAdapter1 = new MyBaseAdapter(this, items1);   //結びつけ
+        enemyCharaStatus = enemyChara.createChara();  //相手キャラ作成
+        myBaseAdapter1 = new MyBaseAdapter(this, enemyCharaStatus);   //結びつけ
         listView1 = findViewById(R.id.listView1);
         listView1.setAdapter(myBaseAdapter1);
         myBaseAdapter1.notifyDataSetChanged();
-        intent.putExtra("KEY_ENEMY", items1);
-        intent.putExtra("KEY_MEMBERS", items2);
+        intent.putExtra("KEY_ENEMY", enemyCharaStatus);
+        intent.putExtra("KEY_MEMBERS", myCharaStatus);
     }
 
     public void battale_main(View v){   //バトル
@@ -72,8 +74,8 @@ public class BattaleStart extends Activity {
     }
 
     private class EnemyChara{   //相手キャラクラス
-        ArrayList<MyListItem> createChara(){
-            ArrayList<MyListItem> items = new ArrayList<>();
+        ArrayList<CharaStatus> createChara(){
+            ArrayList<CharaStatus> items = new ArrayList<>();
             for(int i = 0; i < 3; i++) {
                 String name = randomName();
                 int hp = CharaCreate.GetNumber(name, 0)*(10);
@@ -105,12 +107,13 @@ public class BattaleStart extends Activity {
                         def = 10;
                         agi = 50;
                 }
-                MyListItem item = new MyListItem(name, job, hp, mp, str, def, agi, luck, create_at);
+                CharaStatus item = new CharaStatus(name, job, hp, mp, str, def, agi, luck, create_at);
                 items.add(item);
             }
             return items;
         }
 
+        //TODO 誰の名前かをわかるようにする
         private String randomName(){    //名前決め
             ArrayList<String> names = new ArrayList<>();
             Collections.addAll(names, "ドリアール", "アーミュー", "ジャスカー", "ドバイモン");
@@ -120,4 +123,5 @@ public class BattaleStart extends Activity {
         }
     }
 }
+
 

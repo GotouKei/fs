@@ -181,11 +181,13 @@ public class CharaCreate extends Activity implements      //キャラを作成�
         return 0;
     }
 
+    //TODO back先
     public void back(View view) {
-        Intent intent = new Intent(getApplicationContext(), CharaAll.class);
+        Intent intent = new Intent(getApplicationContext(), CharaList.class);
         startActivity(intent);
     }
 
+    //何かわからん
     public static String dateFormat(Long date){
         return tdate.format(new Date(date));
     }
